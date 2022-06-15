@@ -3,8 +3,8 @@ import numpy as np
 import streamlit as st
 
 
-seas  = 13
-ep = 9
+
+st.image("https://shop13443.sfstatic.io/upload_dir/shop/products/55/3155b.jpg")
 
 with st.form(key="my_form"):
     seasons = st.slider(label= "Antal Seasoner", min_value=1, max_value=12)
@@ -18,11 +18,9 @@ if submit:
     season = list(range(1, seas))
     eps = list(range(1,ep))
 
-    pick = []
-    for i in season:
-        for ii in eps:
-            pick.append(f"Season {int(i)}, Episoide {int(ii)}")
+
+    pick = [f"Season {int(x)}, Episode {int(y)}" for x in season for y in eps]
 
 
     for i in random.choices(pick, k=int(antal)):
-        st.write(i)
+        st.markdown(f'<div style="text-align: center;">{i}</div>', unsafe_allow_html=True)
