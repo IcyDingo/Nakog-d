@@ -7,9 +7,9 @@ seas  = 13
 ep = 9
 
 with st.form(key="my_form"):
-    seasons = st.number_input(label= "Antal Seasoner")
-    eps = st.number_input(label="Antal Episoder")
-    antal = st.number_input("Antal Foresalg")
+    seasons = st.slider(label= "Antal Seasoner", min_value=1, max_value=12)
+    eps = st.slider(label="Antal Episoder",min_value=1, max_value=10 )
+    antal = st.text_input("Antal Foresalg")
     submit = st.form_submit_button("Submit")
 
 
@@ -21,8 +21,8 @@ if submit:
     pick = []
     for i in season:
         for ii in eps:
-            pick.append(f"Season {i}, Episoide {ii}")
+            pick.append(f"Season {int(i)}, Episoide {int(ii)}")
 
 
-    for i in random.choices(pick, k=antal):
+    for i in random.choices(pick, k=int(antal)):
         st.write(i)
