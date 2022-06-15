@@ -15,8 +15,8 @@ with st.form(key="my_form"):
 
 if submit: 
 
-    season = list(range(1, seas))
-    eps = list(range(1,ep))
+    season = list(range(1, seasons))
+    eps = list(range(1,eps))
 
 
     pick = [f"Season {int(x)}, Episode {int(y)}" for x in season for y in eps]
